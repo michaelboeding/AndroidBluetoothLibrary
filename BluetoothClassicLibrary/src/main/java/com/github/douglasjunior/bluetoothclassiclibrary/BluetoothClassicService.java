@@ -335,6 +335,11 @@ public class BluetoothClassicService extends BluetoothService {
                     int read = mmInStream.read();
                     temp = (byte) read;
 
+                    if (i == buffer.length - 1) {
+                        dispatchBuffer(buffer, i);
+                        i = 0;
+                    }
+
                 
                     if (i > 0) {
                         dispatchBuffer(buffer, i);
@@ -342,10 +347,7 @@ public class BluetoothClassicService extends BluetoothService {
                     }
                     continue;
                 
-                    if (i == buffer.length - 1) {
-                        dispatchBuffer(buffer, i);
-                        i = 0;
-                    }
+                    
 
                     buffer[i] = temp;
                     i++;
