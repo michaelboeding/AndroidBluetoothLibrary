@@ -346,6 +346,8 @@ public class BluetoothClassicService extends BluetoothService {
                         dispatchBuffer(buffer, i);
                         i = 0;
                     }
+                    //always send data no matter what 
+                    dispatchBuffer(buffer, i);
                     buffer[i] = temp;
                     i++;
                     //System.out.println("read: " + new String(buffer, 0 , i));
